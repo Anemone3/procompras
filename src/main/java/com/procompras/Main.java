@@ -1,4 +1,4 @@
-package com.procompra;
+package com.procompras;
 
 import java.sql.*;
 import java.util.Properties;

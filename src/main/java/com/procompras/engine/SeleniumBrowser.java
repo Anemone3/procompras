@@ -15,11 +15,15 @@ public class SeleniumBrowser {
     public SeleniumBrowser() {
 
         ChromeOptions options = new ChromeOptions();
-        options.setBinary("/usr/bin/brave");
+
+        if ("Linux".equalsIgnoreCase(System.getProperty("os.name"))) {
+            options.setBinary("/usr/bin/brave");
+            options.addArguments("--headless=new");
+        }
+
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-gpu");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless=new");
 
         this.driver = new ChromeDriver(options);
         this.driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));

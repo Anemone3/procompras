@@ -34,6 +34,15 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- Source: https://mvnrepository.com/artifact/org.hibernate/hibernate-vector -->
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-vector</artifactId>
+            <version>${hibernate.version}</version>
+            <type>pom</type>
+            <scope>compile</scope>
+        </dependency>
+
         <!-- Source: https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-hikaricp -->
         <dependency>
             <groupId>org.hibernate.orm</groupId>

@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.w3c.dom.ls.LSException;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -45,6 +44,7 @@ public class RappiSpider {
                 for (WebElement currentElement : productsElements) {
                     this.scrollToProduct(currentElement);
                     ProductScrapping productScrap = this.extract(currentElement, categoryName, marketName);
+                    System.out.println(productScrap);
                     products.add(productScrap);
                 }
             }
@@ -137,13 +137,13 @@ public class RappiSpider {
         Thread.sleep(Duration.ofMillis(200L));
     }
 
-    public Boolean removeLoginModal() {
+    public void removeLoginModal() {
         String modalXpath = "//section[@role='dialog'][.//header[contains(text(), 'Confirma tu identidad')]]";
         var driver = this.browser.getDriver();
 
         List<WebElement> modals = driver.findElements(By.xpath(modalXpath));
         if (modals.isEmpty()) {
-            return Boolean.FALSE;
+            return;
         }
 
         this.browser.executeScript("""
@@ -161,7 +161,5 @@ public class RappiSpider {
                 document.body.style.setProperty('position', 'static', 'important');
                 document.body.style.setProperty('margin-right', '0px', 'important');
                 """, modals.getFirst());
-
-        return Boolean.TRUE;
     }
 }

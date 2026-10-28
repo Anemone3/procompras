@@ -1,4 +1,4 @@
-package com.procompras.entities;
+package com.procompras.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.Array;

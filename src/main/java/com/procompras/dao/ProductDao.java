@@ -1,6 +1,6 @@
 package com.procompras.dao;
 
-import com.procompras.entities.Product;
+import com.procompras.model.Product;
 import jakarta.persistence.EntityManagerFactory;
 
 public class ProductDao {

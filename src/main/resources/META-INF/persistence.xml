@@ -13,8 +13,8 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!-- Se utiliza para reconocer las entidades que no sean implicamente listadas -->
-        <class>com.procompras.entities.Product</class>
-        <class>com.procompras.entities.RecipeKnowledge</class>
+        <class>com.procompras.model.Product</class>
+        <class>com.procompras.model.RecipeKnowledge</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <!-- Database properties -->

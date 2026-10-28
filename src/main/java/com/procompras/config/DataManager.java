@@ -11,7 +11,7 @@ public class DataManager implements AutoCloseable {
         this.emf = Persistence.createEntityManagerFactory("persistence-procompras");
     }
 
-    public EntityManagerFactory getEntitiyManager() {
+    public EntityManagerFactory getEntityManager() {
         return this.emf;
     }
 

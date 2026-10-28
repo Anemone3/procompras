@@ -15,7 +15,7 @@ public class RecipeData {
         try {
             String filePath = filePathResource.getFile().getAbsolutePath();
 
-            try (Stream<RecipeLaAbuela> recipes = ExtractCSV.read(filePath, RecipeLaAbuela::fromRow)) {
+            try (Stream<RecipeLaAbuela> recipes = ExtractCSV.<RecipeLaAbuela>read(filePath, RecipeLaAbuela::fromRow)) {
                 return recipes.toList();
             }
 

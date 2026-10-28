@@ -13,28 +13,18 @@ import java.util.stream.StreamSupport;
 
 public final class ExtractCSV {
 
-    private ExtractCSV() {
-    }
+    public static <T> Stream<T> read(String filePath, Function<String[], T> mapper) throws IOException {
 
-    public static <T> Stream<T> read(
-            String filePath,
-            Function<String[], T> mapper
-    ) throws IOException {
-
-        CSVReader reader = new CSVReaderBuilder(
-                Files.newBufferedReader(Path.of(filePath))
-        ).withSkipLines(1).build();
+        CSVReader reader = new CSVReaderBuilder(Files.newBufferedReader(Path.of(filePath))).withSkipLines(1).build();
 
         try {
-            return StreamSupport.stream(reader.spliterator(), false)
-                    .map(mapper)
-                    .onClose(() -> {
-                        try {
-                            reader.close();
-                        } catch (IOException e) {
-                            throw new UncheckedIOException(e);
-                        }
-                    });
+            return StreamSupport.stream(reader.spliterator(), false).map(mapper).onClose(() -> {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new UncheckedIOException(e);
+                }
+            });
         } catch (RuntimeException e) {
             reader.close();
             throw e;

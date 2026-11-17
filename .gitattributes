@@ -1,0 +1,2 @@
+JavaProcompras/src/main/resources/datasets/*.csv -text
+*.ipynb text eol=lf

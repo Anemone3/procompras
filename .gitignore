@@ -36,3 +36,17 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Python / Jupyter ###
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.jupyter/
+.uv-cache/
+
+### Datos generados por los notebooks ###
+notebook/data/processed/*
+!notebook/data/processed/.gitkeep
+notebook/data/reports/cambios_texto.csv
+notebook/data/reports/recetas_descartadas.csv
